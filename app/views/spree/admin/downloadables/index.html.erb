@@ -1,0 +1,34 @@
+<div class='toolbar'>
+  <ul class='actions'>
+    <li id="new_product_link">
+      <%= button_link_to t("ghetto_files.new_downloadable"), new_object_url, {:icon => 'add'} %>
+    </li>
+  </ul>
+  <br class='clear' />
+</div>
+
+<h1><%=t("ghetto_files.downloadables") %></h1>
+
+<table class="index">
+  <tr>
+    <th><%= Spree::Downloadable.human_attribute_name(:title) %></th>
+    <th><%= Spree::Downloadable.human_attribute_name(:attachment) %></th>
+    <th><%= t("action") %></th>
+  </tr>
+  <tbody>
+    <% @downloadables.each do |downloadable| %>
+    <tr class="<%= cycle('even', 'odd') %>" id="<%= dom_id downloadable %>">
+      <td>
+        <%= downloadable.title %>
+      </td>
+      <td>
+        <%= downloadable.attachment.url %>
+      </td>
+      <td>
+        <%= link_to_edit downloadable %> &nbsp;
+        <%= link_to_delete downloadable %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

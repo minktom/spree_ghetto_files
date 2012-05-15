@@ -1,0 +1,21 @@
+en:
+  activerecord:
+    attributes:
+      downloadable: &downloadable_labels
+        title: Title
+        attachment: Attachment
+    models:
+      downloadable:
+        one: Downloadable
+        many: Downloadables
+  helpers:
+    label:
+      downloadable:
+        <<: *downloadable_labels
+  downloadable: Downloadable
+  downloadables: Downloadables
+  ghetto_files:
+    downloadables: Downloadables
+    new_downloadable: New downloadable
+    editing_downloadable: Editing downloadable
+    confirm_delete: Are you sure ?
