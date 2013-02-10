@@ -16,11 +16,9 @@
   </div>
   <div class="right">
 
-    <% for product in Spree::Product.find(:all) %>  
-      <div class="product_checkbox">
-        <%= check_box_tag "downloadable[product_ids][]", product.id, @downloadable.products.include?(product) %>  
-        <%= product.name %>  
-      </div>
+    <%= f.field_container :products do %>
+      <%= f.label :products %><br />
+      <%= f.collection_select :product_ids, Spree::Product.all, :id, :name, {}, {multiple: 'multiple', class: 'chzn-select fullwidth'} %>
     <% end %>
     
   </div>
