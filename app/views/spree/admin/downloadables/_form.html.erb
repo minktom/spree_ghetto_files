@@ -1,25 +1,18 @@
-<div class="clearfix">
-  <div class="left">
+<div>
+  <%= f.field_container :title do %>
+    <%= f.label :title %> <span class="required">*</span><br />
+    <%= f.text_field :title, :class => 'fullwidth title' %>
+    <%= f.error_message_on :title %>
+  <% end %>
 
-    <%= f.field_container :title do %>
-      <%= f.label :title %> <span class="required">*</span><br />
-      <%= f.text_field :title, :class => 'fullwidth title' %>
-      <%= f.error_message_on :title %>
-    <% end %>
+  <%= f.field_container :attachment do %>
+    <%= f.label :attachment %><br />
+    <%= f.file_field :attachment %>
+    <%= f.error_message_on :attachment %>
+  <% end %>
 
-    <%= f.field_container :attachment do %>
-      <%= f.label :attachment %><br />
-      <%= f.file_field :attachment %>
-      <%= f.error_message_on :attachment %>
-    <% end %>
-
-  </div>
-  <div class="right">
-
-    <%= f.field_container :products do %>
-      <%= f.label :products %><br />
-      <%= f.collection_select :product_ids, Spree::Product.all, :id, :name, {}, {multiple: 'multiple', class: 'chzn-select fullwidth'} %>
-    <% end %>
-    
-  </div>
+  <%= f.field_container :products do %>
+    <%= f.label :products %><br />
+    <%= f.collection_select :product_ids, Spree::Product.all, :id, :name, {}, {multiple: 'multiple', class: 'chzn-select fullwidth'} %>
+  <% end %>
 </div>
